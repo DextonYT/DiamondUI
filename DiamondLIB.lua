@@ -1,6 +1,6 @@
 --[[
 
-ArrayField Interface Suite
+Diamond UI
 by Meta
 
 Original by Sirius
