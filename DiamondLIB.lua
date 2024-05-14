@@ -1,10 +1,11 @@
 --[[
 
-Diamond UI
-by Meta
+Diamond UI Lib
+by Dexton
 
 Original by Sirius
 Original by ArrayField
+Original by Meta 
 
 -------------------------------
 Arrays  | Designing + Programming + New Features
@@ -154,7 +155,7 @@ ParentObject(Diamond)
 --Object Variables
 
 local Camera = workspace.CurrentCamera
-local Main = ArrayField.Main
+local Main = Diamond.Main
 local Topbar = Main.Topbar
 local Elements = Main.Elements
 local LoadingFrame = Main.LoadingFrame
@@ -165,7 +166,7 @@ local SearchBar = Main.Searchbar
 local Filler = SearchBar.CanvasGroup.Filler
 local Prompt = Main.Prompt
 local NotePrompt = Main.NotePrompt
-local InfoPrompt = ArrayField.Info
+local InfoPrompt = Diamond.Info
 
 Diamond.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
@@ -190,7 +191,7 @@ local SelectedTheme = DiamondLibrary.Theme.Default
 
 function ChangeTheme(ThemeName)
 	SelectedTheme = Diamond.Theme[ThemeName]
-	for _, obj in ipairs(ArrayField:GetDescendants()) do
+	for _, obj in ipairs(Diamond:GetDescendants()) do
 		if obj.ClassName == "TextLabel" or obj.ClassName == "TextBox" or obj.ClassName == "TextButton" then
 			if SelectedTheme.TextFont ~= "Default" then 
 				obj.TextColor3 = SelectedTheme.TextColor
@@ -333,7 +334,7 @@ end
 local function LoadConfiguration(Configuration)
 	local Data = HttpService:JSONDecode(Configuration)
 	for FlagName, FlagValue in next, Data do
-		if ArrayFieldLibrary.Flags[FlagName] then
+		if Diamond.Flags[FlagName] then
 			spawn(function() 
 				if DiamondLibrary.Flags[FlagName].Type == "ColorPicker" then
 					DiamondLibrary.Flags[FlagName]:Set(UnpackColor(FlagValue))
@@ -350,7 +351,7 @@ end
 local function SaveConfiguration()
 	if not CEnabled then return end
 	local Data = {}
-	for i,v in pairs(ArrayFieldLibrary.Flags) do
+	for i,v in pairs(DiamondLibrary.Flags) do
 		if v.Type == "ColorPicker" then
 			Data[i] = PackColor(v.Color)
 		else
@@ -696,7 +697,7 @@ function DiamondLibrary:Notify(NotificationSettings)
 				ActionCompleted = false
 				local NewAction = Notification.Actions.Template:Clone()
 				NewAction.BackgroundColor3 = SelectedTheme.NotificationActionsBackground
-				if SelectedTheme ~= ArrayFieldLibrary.Theme.Default then
+				if SelectedTheme ~= DiamondLibrary.Theme.Default then
 					NewAction.TextColor3 = SelectedTheme.TextColor
 				end
 				NewAction.Name = Action.Name
@@ -1538,7 +1539,7 @@ function DiamondLibrary:CreateWindow(Settings)
 	-- Tab
 	local FirstTab = false
 	DiamondQuality.Window = {Tabs = {}}
-	local Window = ArrayFieldQuality.Window
+	local Window = DiamondQuality.Window
 	function Window:CreateTab(Name,Image)
 		Window.Tabs[Name]={Elements = {}}
 		local Tab = Window.Tabs[Name]
