@@ -95,7 +95,7 @@ local Button = Tab:CreateButton({
 })
 ```
 
-## Creating A Slider
+## Creating A Toggle
 ```lua
 local Toggle = Tab:CreateToggle({
    Name = "Toggle Example",
