@@ -3,7 +3,7 @@ This documentation is for DiamondUI
 
 ## Booting the library
 ```lua
-local Diamond = loadstring(game:HttpGet('https://raw.githubusercontent.com/DextonYT/DiamondUI/main/DiamondLIB.lua'))()
+local Diamond = loadstring(game:HttpGet('https://pastebin.com/raw/Jh7cq2Vn'))()
 ```
 
 ## Creating A Window
