@@ -63,7 +63,7 @@ Section:Unlock()```
 
 ## Destroying the interface
 ```lua
-ArrayField:Destroy()
+Diamond:Destroy()
 ```
 
 ## Notifying the user
